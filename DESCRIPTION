@@ -1,0 +1,28 @@
+Package: PTC
+Type: Package
+Title: Pseudo-temporal Causality Approach
+Version: 1.0.0
+Authors@R: as.person(c(
+    "Andres Mauricio Cifuentes_Bernal <andres.cifuentes_bernal@mymail.unisa.edu.au> [aut, cre]", 
+    "Vu VH Pham <vu_viet_hoang.pham@mymail.unisa.edu.au> [aut]",
+    "Taosheng Xu <taosheng.x@@gmail.com> [aut]",
+    "Thuc Duy Le <thuc.le@unisa.edu.au> [aut]"
+  ))
+Description: PTC package provides tools find miRNA-mRNA causal regulatory relationships during 
+ biological processes. Causal inference is made by assuming a linear dependence model between 
+ the predictors (miRNAs) and a target mRNA (response variable). This model is assumed invariant 
+ throughout the whole process. 
+ The model is created from gene expression sequential data. PTC transforms static gene expression 
+ datasets to sequential data (via a Pseudotime analysis). PTC identifies causal regulatory 
+ relationships by testing violations to the invariance property (Peters et al., 2015; Pfister et 
+ al., 2018) for those sets that contains only miRNAs that biologically can interact with each target gene.
+License: GPL-3.0
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  miRBaseConverter,
+  CancerSubtypes,
+  seqICP,
+  miRBaseConverter  
+RoxygenNote: 7.1.0
+
