@@ -28,3 +28,6 @@ devtools::install_github('AndresMCB/PTC')
 ```
 ## Documentation 
 Detailed information about the functions implemented in PTC can be found in the [user manual](PTC_1.0.0.pdf)
+
+Please find the datasets employed in our paper in the folder [data](data/)
+
