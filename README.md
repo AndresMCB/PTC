@@ -27,4 +27,4 @@ BiocManager::install(c('miRBaseConverter', 'CancerSubtypes'))
 devtools::install_github('AndresMCB/PTC')
 ```
 ## Documentation 
-PTC user manual can be found as PDF in 
+Detailed information about the functions implemented in PTC can be found in the [user manual](PTC_1.0.0.pdf)
