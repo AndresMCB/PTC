@@ -19,10 +19,9 @@ Description: PTC package provides tools find miRNA-mRNA causal regulatory relati
 License: GPL-3.0
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
   miRBaseConverter,
   CancerSubtypes,
   seqICP,
-  miRBaseConverter  
-RoxygenNote: 7.1.0
-
+  miRBaseConverter 
+RoxygenNote: 7.1.1

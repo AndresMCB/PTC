@@ -103,7 +103,7 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
   Results<-list()
 
   Results$Plist<-Extract.Parents(PTC.outcome,SelData$PParents)
-  Results$Summary<-na.omit(InterList.toMatrix(Results$Plist$Names))
+  Results$Summary<-InterList.toMatrix(Results$Plist$Names)
   Results$Summary<-PTC.RankByContext(TS7.0_Conserved_Site_Context_Scores
                                     ,Results$Summary)
 

@@ -51,7 +51,7 @@ Extract.Parents<- function(PTC.outcome,Predictors){
     Names[[i]]<-Predictors[[i]][PP[[i]]]
   }
   return(list(Index=PP
-              ,Names=Names
+              ,Names=na.omit(Names)
               ,genes=names(PP))
   )
 }

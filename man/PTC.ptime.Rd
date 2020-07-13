@@ -7,8 +7,8 @@
 PTC.ptime(matchedData, VIM)
 }
 \arguments{
-\item{matchedData}{A List with two matrices. miRNA gene expressions (1st element)
-and mRNA gene expressions (2nd element).
+\item{matchedData}{A \code{List} with two elements. A miRNA gene expressions matrix (1st element)
+and A mRNA gene expressions matrix (2nd element).
 Columns represent miRNAs and rows represent samples.}
 
 \item{VIM}{VIM expression to be used for calculating VIM_Time.}

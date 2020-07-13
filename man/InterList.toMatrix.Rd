@@ -4,10 +4,10 @@
 \alias{InterList.toMatrix}
 \title{InterList.toMatrix}
 \usage{
-InterList.toMatrix(miRNAsList)
+InterList.toMatrix(InterList)
 }
 \arguments{
-\item{miRNAsList}{A \code{list} where each element has the following structure:
+\item{InterList}{A \code{list} where each element has the following structure:
 \itemize{
   \item{\code{name:}}{ mRNA name.}
   \item{\code{data:}}{ Names of the miRNAs inferred as parents by PTC.}
@@ -18,7 +18,7 @@ A matrix with 2 columns containing the miRNA-mRNA interactions.
 }
 \description{
 Given a \code{list} of mRNAs containing the set of their
-inferred parents (the output of \link{Extract.Parents}), it returns
+inferred parents (e.g. the output of \link{Extract.Parents}), it returns
 a \code{matrix} with the miRNA-mRNA interactions. Each row represents an interaction.
 The first column contains miRNAs. The second column contains mRNAs
 }
