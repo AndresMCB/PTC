@@ -12,7 +12,7 @@ PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
       \item A matrix with miRNAs gene expression.
       \item A matrix with mRNAs  gene expression.
    }
-Columns represent miRNAs/mRNAs and rows represent time samples. Columns names must
+Columns represent miRNAs/mRNAs and rows represent samples (time points). Columns names must
 correspond to miRNAs/mRNAs names.}
 
 \item{nmiR}{Number of miRNAs to be selected as predictor candidates.}

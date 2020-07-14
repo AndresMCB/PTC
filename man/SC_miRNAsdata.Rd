@@ -13,7 +13,7 @@ description and samples
 SC_miRNAsdata
 }
 \description{
-File containing miRNA normalized and log2 transformed
+GSE114071 file containing miRNA normalized and log2 transformed
 gene expresion of 2822 miRNAs from 21 samples.
 }
 \references{
@@ -23,7 +23,6 @@ and mechanisms of microRNA regulation."
 Nat Commun 10, 95 (2019).
 https://doi.org/10.1038/s41467-018-07981-6
 }
-\keyword{Cell}
-\keyword{Single}
-\keyword{dataset,}
-\keyword{miRNAs,}
+\keyword{Single_Cell}
+\keyword{dataset}
+\keyword{miRNAs}

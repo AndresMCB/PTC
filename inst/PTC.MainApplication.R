@@ -8,7 +8,7 @@ data(GroundT)
 ######################Test with bulk data ##############
 test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,
           mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
-t1.Confirmed<-Confirmed.fromList(test1$Plist$Names,GroundT)
+t1.Confirmed<-Confirmed.fromList(test1$Names,GroundT)
 t1.ConfirmedTop200<-Confirmed.fromMatrix(
   InterMatrix = test1$Summary[1:200,2:3],GroundT = GroundT)
 
@@ -50,7 +50,7 @@ SC_miRNAsdata<-apply(SC_miRNAsdata[-1,],c(1,2),as.numeric)
 #####-----  PTC Single Cell data ----####
 test2<-PTC(miRNAs=SC_miRNAsdata, mRNAs=SC_mRNAsdata
            , VIM=SC_mRNAsdata[,"VIM"])
-t2.Confirmed<-Confirmed.fromList(test2$Plist$Names,GroundT)
+t2.Confirmed<-Confirmed.fromList(test2$Names,GroundT)
 t2.ConfirmedTop200<-Confirmed.fromMatrix(
   InterMatrix = test2$Summary[1:200,2:3],GroundT = GroundT)
 
@@ -59,6 +59,6 @@ wandTime <- read.csv("./data/wandTime.csv"
   , header=FALSE)
 test3<-PTC(miRNAs=SC_miRNAsdata, mRNAs=SC_mRNAsdata
            , VIM=wandTime)
-t3.Confirmed<-Confirmed.fromList(test3$Plist$Names,GroundT)
+t3.Confirmed<-Confirmed.fromList(test3$Names,GroundT)
 t3.ConfirmedTop200<-Confirmed.fromMatrix(
   InterMatrix = test3$Summary[1:200,2:3],GroundT = GroundT)

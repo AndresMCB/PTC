@@ -1,11 +1,12 @@
 #' @title InterMatrix.toList
 #'
-#' @description Given a matrix containing miRNA-mRNA pairs,
-#' creates a /code{list} where each element corresponds to a mRNA and contains
-#' all miRNA linked to that mRNA.
+#' @description Given a matrix containing miRNA-mRNA interactions,
+#' creates a \code{list} where each element corresponds to a mRNA and contains
+#' the miRNAs related to that mRNA.
 #'
-#' @param InterMatrix a two column \code{matrix}. The first column corresponds to miRNA.
-#' the second column corresponds to mRNA.
+#' @param InterMatrix A two column \code{matrix} containing miRNA-mRNA relationships.
+#' The first column corresponds to miRNAs.
+#' the second column corresponds to mRNAs.
 #' @export
 #' @seealso
 #' @return A \code{list} where each element has the following structure:
@@ -21,9 +22,8 @@
 #' names(GEData)<-c("miRs","mRNAs")
 #' seqData<-PTC.ptime(GEData,VIM)
 #' SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
-#' PParentsM<-InterList.toMatrix(na.omit(SelData$PParents))
-#' PParentsL<-InterMatrix.toList(PParentsM)
-#' PParentsL2<-SelData$PParents[-which(sapply(SelData$PParents, is.null))]
+#' InteractionsM<-InterList.toMatrix(SelData$PParents)
+#' InteractionsL<-InterMatrix.toList(PParentsM)
 #' }
 
 InterMatrix.toList<-function(InterMatrix){

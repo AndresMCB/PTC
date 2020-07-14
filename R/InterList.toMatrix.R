@@ -1,8 +1,8 @@
 #' @title InterList.toMatrix
 #'
-#' @description Given a \code{list} of mRNAs containing the set of their
-#' inferred parents (e.g. the output of \link{Extract.Parents}), it returns
-#' a \code{matrix} with the miRNA-mRNA interactions. Each row represents an interaction.
+#' @description Given a \code{list} where each element is a mRNA containing the set of
+#' the miRNAs (parents) such mRNA can interact with(e.g. the output of \link{Extract.Parents}),
+#' it returns a \code{matrix} with the miRNA-mRNA interactions. Each row represents an interaction.
 #' The first column contains miRNAs. The second column contains mRNAs
 #' @inheritParams Confirmed.fromList
 #' @export
@@ -12,13 +12,14 @@
 #' data(TCGA_BRCAdata)
 #' data(TScan)
 #' seqData<-PTC.ptime(TCGA_BRCAdata,TCGA_BRCAdata$mRNAs[,"VIM"])
-#' SelData<-PTC.GeneSel(seqData, topk_miR = 30, topk_mR = 1500)
-#' PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="SORCS1")
-#' temp <-SelData$PParents[["SORCS1"]]
-#' SORCS1.X.TScan=SelData$d[,temp]
-#' SORCS1.Parents<-PTC.TestInvariance(Y=SelData$d[,"SORCS1"], X=SORCS1.X.TScan)
-#' SORCS1.Parents<-Extract.Parents(SORCS1.Parents,SelData$PParents[["SORCS1"]])
-#' SORCS1.relMatrix<-na.omit(InterList.toMatrix(SORCS1.Parents$Plist$Names))
+#' SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
+#' PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="ONECUT2")
+#' temp <-SelData$PParents[["ONECUT2"]]
+#' ONECUT2.X.TScan=SelData$d[,temp]
+#' set.seed(1)
+#' ONECUT2.Parents<-PTC.TestInvariance(Y=SelData$d[,"ONECUT2", drop = F], X=ONECUT2.X.TScan)
+#' ONECUT2.Parents<-Extract.Parents(ONECUT2.Parents,SelData$PParents["ONECUT2"])
+#' ONECUT2.relMatrix<-InterList.toMatrix(ONECUT2.Parents$Names)
 #' }
 
 InterList.toMatrix<-function(InterList){

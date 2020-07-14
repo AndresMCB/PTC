@@ -5,35 +5,43 @@
 #' that are invariant. Invariance is determined by using the \code{decoupled test}
 #' from [seqICP]{seqICP.s}.
 #' @inheritParams PTC
-#' @param Y [nx1] A \code{vector} containing the sequential gene expression of a
-#' target gene Y.
-#' @param X [nxp] A \code{matrix} containing the sequential gene expression of
-#' \code{p} plausible parents (miRNAs that can bind the target mRNA).
+#' @param Y [nx1] A \code{named vector} containing the sequential gene expression of a
+#' target gene Y.\cr Please use \code{drop = FALSE} when assigning a mRNA gene expression from a \code{matrix}
+#' to preserve the name of the mRNA.
+#' @param X [nxp] A \code{named matrix} containing the sequential gene expression of
+#' \code{p} plausible parents (miRNAs that can bind the target mRNA). \cr
+#' for a correct functioning, column names must be the mRNA names.
 #' @export
 #'
-#' @seealso \link{PTC}, \link[seqICP]{seqICP.s}
+#' @seealso \link{PTC}, \link{seqICP::seqICP.s}
 #' @return
 #' \item{\code{Parents}}{A set containing the indexes of the parents inferred by PTC.
-#' These indexes correspond to the indexes of the miRNAs in the set
-#' of Plausible Parents. The Plausible Parents are the miRNAs obtained from
-#' \link{PTC.GeneSel}}
+#' These indexes correspond to the indexes of the miRNAs in the set \code{PParents}
+#' (Plausible Parents) obtained from \link{PTC.GeneSel}}
 #' @examples \dontrun{
 #' data(TCGA_BRCAdata)
 #' data(TScan)
 #' seqData<-PTC.ptime(TCGA_BRCAdata,TCGA_BRCAdata$mRNAs[,"VIM"])
-#' SelData<-PTC.GeneSel(seqData, topk_miR = 30, topk_mR = 1500)
-#' PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="SORCS1")
-#' temp <-SelData$PParents[["SORCS1"]]
-#' SORCS1.X.TScan=SelData$d[,temp]
-#' SORCS1.Parents<-PTC.TestInvariance(Y=SelData$d[,"SORCS1"], X=SORCS1.X.TScan)
+#' SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
+#' PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="ONECUT2")
+#' temp <-SelData$PParents[["ONECUT2"]]
+#' ONECUT2.X.TScan=SelData$d[,temp, drop = FALSE]
+#' set.seed(1)
+#' ONECUT2.Parents<-PTC.TestInvariance(Y=SelData$d[,"ONECUT2", drop = F], X=ONECUT2.X.TScan)
 #' }
+#' @references
+#' A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA
+#' Interactions During Biological Processes\cr
+#' Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li,
+#' Lin Liu, Jiuyong Li, Thuc Duy Le \cr
+#' bioRxiv 2020.07.07.192724;
+#'  \url{https://doi.org/10.1101/2020.07.07.192724}
+#'
 
 PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
                              , explore.all=TRUE, silent=TRUE
                              , complements = TRUE){
 
-  # if (!require(seqICP)) install.packages('seqICP')
-  # library(seqICP)
   test = "decoupled"
   X<-as.matrix(X)
   par.test = list(grid = as.integer(seq(0,nrow(X),length.out=ngrid+1))
@@ -117,5 +125,8 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
     message("----------------------PTC.findParents MODEL REJECTED------------------------")
   }
   Parents<-list(S.Union)
+
+  names(Parents)<-colnames(Y)
+
   return(Parents)
 }# end PTC.TestInvariance

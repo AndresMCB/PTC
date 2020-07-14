@@ -15,18 +15,20 @@ PTC.TestInvariance(
 )
 }
 \arguments{
-\item{Y}{[nx1] A \code{vector} containing the sequential gene expression of a
-target gene Y.}
+\item{Y}{[nx1] A \code{named vector} containing the sequential gene expression of a
+target gene Y.\cr Please use \code{drop = FALSE} when assigning a mRNA gene expression from a \code{matrix}
+to preserve the name of the mRNA.}
 
-\item{X}{[nxp] A \code{matrix} containing the sequential gene expression of
-\code{p} plausible parents (miRNAs that can bind the target mRNA).}
+\item{X}{[nxp] A \code{named matrix} containing the sequential gene expression of
+\code{p} plausible parents (miRNAs that can bind the target mRNA). \cr
+for a correct functioning, column names must be the mRNA names.}
 
 \item{ngrid}{Number of segments of the time series data used for creating
 the different enviroments required for the statistical test.
 \code{ngrid=2} by default.}
 
 \item{alpha}{Significance level for the statistical test.
-\code{alpha=0.2} by default.}
+\code{alpha=0.02} by default.}
 
 \item{explore.all}{If \code{TRUE}(default), PTC explores all combinations of predictors
 and returns the union set of all combinations that does not violate the invariance
@@ -43,9 +45,8 @@ its complement. If \code{FALSE} all environments are compared pairwise.}
 }
 \value{
 \item{\code{Parents}}{A set containing the indexes of the parents inferred by PTC.
-These indexes correspond to the indexes of the miRNAs in the set
-of Plausible Parents. The Plausible Parents are the miRNAs obtained from
-\link{PTC.GeneSel}}
+These indexes correspond to the indexes of the miRNAs in the set \code{PParents}
+(Plausible Parents) obtained from \link{PTC.GeneSel}}
 }
 \description{
 Finds a set of miRNAs (predictors) that
@@ -58,13 +59,22 @@ from [seqICP]{seqICP.s}.
 data(TCGA_BRCAdata)
 data(TScan)
 seqData<-PTC.ptime(TCGA_BRCAdata,TCGA_BRCAdata$mRNAs[,"VIM"])
-SelData<-PTC.GeneSel(seqData, topk_miR = 30, topk_mR = 1500)
-PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="SORCS1")
-temp <-SelData$PParents[["SORCS1"]]
-SORCS1.X.TScan=SelData$d[,temp]
-SORCS1.Parents<-PTC.TestInvariance(Y=SelData$d[,"SORCS1"], X=SORCS1.X.TScan)
+SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
+PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="ONECUT2")
+temp <-SelData$PParents[["ONECUT2"]]
+ONECUT2.X.TScan=SelData$d[,temp, drop = FALSE]
+set.seed(1)
+ONECUT2.Parents<-PTC.TestInvariance(Y=SelData$d[,"ONECUT2", drop = F], X=ONECUT2.X.TScan)
 }
+}
+\references{
+A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA
+Interactions During Biological Processes\cr
+Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li,
+Lin Liu, Jiuyong Li, Thuc Duy Le \cr
+bioRxiv 2020.07.07.192724;
+ \url{https://doi.org/10.1101/2020.07.07.192724}
 }
 \seealso{
-\link{PTC}, \link[seqICP]{seqICP.s}
+\link{PTC}, \link{seqICP::seqICP.s}
 }

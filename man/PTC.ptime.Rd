@@ -18,7 +18,6 @@ Pseudotime ordered matched data.
 }
 \description{
 Orders the gene expression by VIM_Time order.
-miRNAs names are changed to \code{miRBase v.21}
 }
 \examples{
 \dontrun{

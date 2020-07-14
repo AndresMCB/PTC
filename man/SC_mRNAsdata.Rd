@@ -13,7 +13,7 @@ description and samples
 SC_mRNAsdata
 }
 \description{
-File containing mRNA gene expresion
+GSE114071 file containing mRNA gene expresion
 of 23284 mRNAs from 22 samples.
 }
 \references{
@@ -23,7 +23,6 @@ and mechanisms of microRNA regulation."
 Nat Commun 10, 95 (2019).
 https://doi.org/10.1038/s41467-018-07981-6
 }
-\keyword{Cell}
-\keyword{Single}
-\keyword{dataset,}
-\keyword{mRNAs,}
+\keyword{Single_Cell}
+\keyword{dataset}
+\keyword{mRNAs}

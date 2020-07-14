@@ -5,10 +5,9 @@
 \alias{TScan}
 \title{TargetScan 7.0}
 \format{
-A \code{matrix} with 3 columns
+A \code{matrix} with 2 columns
 \itemize{
-  \item{miRNAs names v18}
-  \item{miRNAs names v17}
+  \item{miRNAs names v21}
   \item{predicted target (mRNA)}
 }
 }
@@ -17,7 +16,8 @@ TScan
 }
 \description{
 File containing a \code{matrix} with miRNAs and
-predicted targets from TargetScan Release 7.0
+predicted targets from TargetScan Release 7.0. miRNA names were transformed
+to their miRBase v.21 by using \link{PTC.miRv21}
 }
 \references{
 Agarwal, V.; Bell, G. W.; Nam, J.-W. & Bartel, D. P.

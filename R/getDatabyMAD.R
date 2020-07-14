@@ -3,7 +3,7 @@
 #' @importFrom CancerSubtypes FSbyMAD
 #' @author Vu VH Pham <vu_viet_hoang.pham@@mymail.unisa.edu.au>,
 #'         Taosheng Xu <taosheng.x@@gmail.com>
-#' @description Given a gene expression matched data including miRNAs-mRNAs,
+#' @description Given a gene expression data including matched miRNAs-mRNAs,
 #'    finds the \code{nmiR} miRNAs and the \code{nmR} mRNAs with the largest
 #'    Median Absolute Deviation (MAD).
 #' @return A \code{list} containing samples of miRs and mRs. The elements of the \code{list} are:
@@ -13,7 +13,7 @@
 #' @export
 #' @seealso \link[CancerSubtypes]{FSbyMAD}
 #' @examples
-#' TCGA_BRCAdata
+#' data(TCGA_BRCAdata)
 #' nmiR <- 30
 #' nmR <- 1500
 #' l <- getDatabyMAD(TCGA_BRCAdata, nmiR, nmR)

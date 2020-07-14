@@ -5,16 +5,19 @@
 \title{PTC}
 \usage{
 PTC(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500 , ngrid=2, alpha=0.02, complements = TRUE
-, explore.all=TRUE, silent=TRUE)
+, explore.all=TRUE, silent=TRUE)\cr
+
+For an adequate functioning, columns names in both, \code{miRNAs} and \code{mRNAs}
+matrices, must be the names of the miRNAs and mRNAs respectively.
 }
 \arguments{
-\item{miRNAs}{A matrix containing gene expression data of
-miRNAs. A total of \code{nmiR} miRNAs from this matrix are selected to be used
-as predictors candidates.
+\item{miRNAs}{A \code{matrix} containing miRNA gene expression.\cr
+A total of \code{nmiR} miRNAs from this matrix are selected to be used
+as predictors candidates (i.e. plausible parents).
 Columns represent miRNAs, rows represent samples.}
 
-\item{mRNAs}{A \code{matrix} containing gene expression data from
-mRNAs. A total of \code{nmR} mRNAs from this matrix are
+\item{mRNAs}{A \code{matrix} containing mRNA gene expression.\cr
+A total of \code{nmR} mRNAs from this matrix are
 selected to be used as response variables.
 Columns represent mRNAs, rows represent samples.}
 
@@ -29,7 +32,7 @@ the different enviroments required for the statistical test.
 \code{ngrid=2} by default.}
 
 \item{alpha}{Significance level for the statistical test.
-\code{alpha=0.2} by default.}
+\code{alpha=0.02} by default.}
 
 \item{complements}{If \code{TRUE} (default), each environment is compared against
 its complement. If \code{FALSE} all environments are compared pairwise.}
@@ -45,26 +48,20 @@ If \code{FALSE}, PTC only displays the number of sets to be explored in
 the current iteration.}
 }
 \value{
-A list consisting of the following elements:
-   \describe{
-      \item{\code{PList}}{A list of three elements:
-         \itemize{
-            \item{\code{Index}}{: A list. For each target gene with at least one parent.
-           The index of the parents.}
-           \item{\code{names}}{: For each target gene with at least one parent.
-           The names of the parents.}
-           \item {\code{genes}}{: The names of all target genes with at least one parent.}
-         }
-      }
-      \item{\code{Summary}}{A matrix representing miRNA-mRNA regulatory interactions
-      inferred by PTC. The columns of the matrix are:
-         \enumerate{
-         \item{\code{rank:}}{ Rank of the inferred interaction}
-         \item{\code{miR:}}{ Names of miRNA (Parent)}
-         \item{\code{mR:}}{ Names of mRNA (Child)}
-         \item{\code{Score:}}{ Score as calculated by \link{PTC.RankByContext}}
-         }
-      }
+A \code{list} consisting of the following elements:
+  \item{\code{Index}}{A \code{list} where each element is a target mRNA.
+   For each target gene with at least one parent. The index of the parents.}
+  \item{\code{names}}{A \code{list} where each element is a target mRNA.
+   For each target gene with at least one parent. The name of the parents.}
+  \item{\code{genes}}{The names of all target genes with at least one parent.}
+  \item{\code{Summary}}{A matrix representing miRNA-mRNA regulatory interactions
+  inferred by PTC. The columns of the matrix are:
+       \enumerate{
+          \item{\code{rank:}}{ Rank of the inferred interaction}
+          \item{\code{miR:}}{ Names of miRNA (Parent)}
+          \item{\code{mR:}}{ Names of mRNA (Child)}
+          \item{\code{Score:}}{ Score as calculated by \link{PTC.RankByContext}}
+          }
    }
 }
 \description{
@@ -72,7 +69,7 @@ PTC estimates the causal parents of a set of \code{nmR} mRNAs,
 given a set of \code{nmiR} predictors (miRNAs). This estimation assumes
 a linear model \deqn{Y_t = \beta X_t + \epsilon}
 With \eqn{Y_t, X_t} the sequential
-data of a target and predictors respectively, and \eqn{\epsilon} independent and identically
+data of the target and the predictors respectively, and \eqn{\epsilon} independent and identically
 distributed errors for the n time points in the time series.
 \eqn{Y_t, X_t} are the sequential data obtained after a pseudotime analysis.
 }
@@ -82,6 +79,15 @@ distributed errors for the n time points in the time series.
    test1<-PTC(miRNAs=TCGA_BRCAdata$miRs, mRNAs=TCGA_BRCAdata$mRNAs
           , VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
 }
+
+}
+\references{
+A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA
+Interactions During Biological Processes\cr
+Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li,
+Lin Liu, Jiuyong Li, Thuc Duy Le \cr
+bioRxiv 2020.07.07.192724;
+ \url{https://doi.org/10.1101/2020.07.07.192724}
 }
 \seealso{
 \link[PTC]{PTC.ptime}, \link[PTC]{PTC.GeneSel},

@@ -14,7 +14,7 @@
 #'data(TCGA_BRCAdata)
 #'data(GroundT)
 #'test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
-#'aux<-InterList.toMatrix(test1$Plist$Names)
+#'aux<-InterList.toMatrix(test1$Names)
 #'t1.Confirmed<-Confirmed.fromMatrix(aux,GroundT)
 #' }
 

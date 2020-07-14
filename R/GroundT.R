@@ -1,6 +1,6 @@
 #'@title Confirmed interactions in miR-Tarbase 6.1, Tarbase 7.0 and miRWalk 2.0
 #'
-#'@description File containing a \code{list} containing the experimentally confirmed miRNA-mRNA
+#'@description File containing a \code{list} with the experimentally confirmed miRNA-mRNA
 #'interactions from the databases described above.
 #'
 #'@name GroundT
@@ -8,8 +8,8 @@
 #'@usage GroundT
 #'@format A \code{list} where each element has the following structure:
 #'\itemize{
-#'   \item{\code{name}}{ mRNA name.}
-#'   \item{\code{data}}{ names of miRNAs whose interactions with the mRNA can be founded in at least
+#'   \item{\code{name}:}{ mRNA name.}
+#'   \item{\code{data}:}{ names of miRNAs whose interactions with the mRNA can be founded in at least
 #'   one of the databases described above.}
 #'}
 #'@references

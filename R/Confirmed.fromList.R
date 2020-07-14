@@ -5,7 +5,7 @@
 #' @param InterList A \code{list} where each element has the following structure:
 #'  \itemize{
 #'    \item{\code{name:}}{ mRNA name.}
-#'    \item{\code{data:}}{ Names of the miRNAs inferred as parents by PTC.}
+#'    \item{\code{data:}}{ Names of the miRNAs inferred as parents}
 #'  }
 #' @param GroundT  A \code{list} where each element has the following structure:
 #'  \itemize{
@@ -22,7 +22,7 @@
 #'data(TCGA_BRCAdata)
 #'data(GroundT)
 #'test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
-#'t1.Confirmed<-Confirmed.fromList(test1$Plist$Names,GroundT)
+#'t1.Confirmed<-Confirmed.fromList(test1$Names,GroundT)
 #' }
 
 Confirmed.fromList<-function(InterList,GroundT){

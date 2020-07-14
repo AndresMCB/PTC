@@ -12,7 +12,7 @@ getDatabyMAD(seqData, nmiR, nmR)
       \item A matrix with miRNAs gene expression.
       \item A matrix with mRNAs  gene expression.
    }
-Columns represent miRNAs/mRNAs and rows represent time samples. Columns names must
+Columns represent miRNAs/mRNAs and rows represent samples (time points). Columns names must
 correspond to miRNAs/mRNAs names.}
 
 \item{nmiR}{Number of miRNAs to be selected as predictor candidates.}
@@ -26,12 +26,12 @@ A \code{list} containing samples of miRs and mRs. The elements of the \code{list
    \item{\code{mRs}}{ The names of the selected mRs.}
 }
 \description{
-Given a gene expression matched data including miRNAs-mRNAs,
+Given a gene expression data including matched miRNAs-mRNAs,
    finds the \code{nmiR} miRNAs and the \code{nmR} mRNAs with the largest
    Median Absolute Deviation (MAD).
 }
 \examples{
-TCGA_BRCAdata
+data(TCGA_BRCAdata)
 nmiR <- 30
 nmR <- 1500
 l <- getDatabyMAD(TCGA_BRCAdata, nmiR, nmR)

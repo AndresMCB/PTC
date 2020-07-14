@@ -4,12 +4,14 @@
 \alias{PTC.findPP}
 \title{PTC.findPP}
 \usage{
-PTC.findPP(TScan, miRs, mRs)
+PTC.findPP(TScan = NULL, miRs, mRs)
 }
 \arguments{
 \item{TScan}{A \code{matrix} containing miRNA-mRNA interactions predicted by
-TargetScan 7.0. The first and second columns contain miRNAs names from
-miRBase versions 18 and 17 respectively. The third column contains the names of the target mRNAs.}
+TargetScan.\cr
+If \code{NULL} (default): Loads the file \code{TScan.rda}, which
+contains interactions from TargetScan 7.0. miRNA names in this file
+belongs to miRBase version 21.}
 
 \item{miRs}{A vector containing the names of miRNAs to be verified. These names
 corresponds to the names of predictor candidates.}
@@ -18,25 +20,25 @@ corresponds to the names of predictor candidates.}
 corresponds to the names of target genes (response variables).}
 }
 \value{
-A list containing the set of miRNAs that can bind each target mRNA:
+A \code{list} where each element corresponds to a mRNA. Each element contains
+the set of miRNAs that can bind the mRNA.
 }
 \description{
-For each mRNA, creates a set of miRNAs (plausible parents) that can biologically target that mRNA.
-A total of \code{nmiR} miRNAs and \code{nmR} mRNAs with the largest gene expression Median Absolute Deviation (MAD)
-are selected as predictor candidates and target mRNAs respectively.
-\cr The set of plausible parents of each gene is a subset of the predictor candidates and contains those miRNA that can bind
-the gene as predicted by TargetScan 7.0.
-miRNAs names are converted to \code{miRBase v.21} during selection process.
+Given a vector of miRNA names and a vector of mRNAs names,
+creates a set of miRNAs (plausible parents) that can biologically target
+that mRNA as predicted by TargetScan. \cr For an adequate functioning
+miRNAs names in \code{TScan} and \code{miRs} must belong to the same version.
+miRBase version 21 is recommended (see \link{PTC.miRv21})
 }
 \examples{
 \dontrun{
 data(TCGA_BRCAdata)
 data(TScan)
 seqData<-PTC.ptime(TCGA_BRCAdata,TCGA_BRCAdata$mRNAs[,"VIM"])
-SelData<-PTC.GeneSel(seqData, topk_miR = 30, topk_mR = 1500)
+SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
 PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs=SelData$mRs)
 }
 }
 \seealso{
-\link{PTC},\link{PTC.GeneSel}, \link{TScan}
+\link{PTC},\link{PTC.GeneSel}, \link{TScan} \link{PTC.miRv21}
 }

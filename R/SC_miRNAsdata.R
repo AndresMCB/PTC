@@ -1,5 +1,5 @@
 #'@title Original miRNAs dataset from GSE114071
-#'@description File containing miRNA normalized and log2 transformed
+#'@description GSE114071 file containing miRNA normalized and log2 transformed
 #'gene expresion of 2822 miRNAs from 21 samples.
 #'@name SC_miRNAsdata
 #'@docType data
@@ -12,6 +12,6 @@
 #'and mechanisms of microRNA regulation."
 #'Nat Commun 10, 95 (2019).
 #'https://doi.org/10.1038/s41467-018-07981-6
-#'@keywords dataset, miRNAs, Single Cell
+#'@keywords dataset miRNAs Single_Cell
 
 NULL

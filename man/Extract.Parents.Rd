@@ -29,7 +29,7 @@ A list of 3 elements.
 }
 \description{
 Uses the outcomes of \link{PTC.GeneSel} and \link{PTC.TestInvariance}
-to create a \code{list} of all mRNAs with at least one causal parent.
+to create a \code{list} of all mRNAs in \code{Predictors} with at least one causal parent.
 }
 \examples{
 \dontrun{
@@ -37,12 +37,12 @@ data(TCGA_BRCAdata)
 data(TScan)
 seqData<-PTC.ptime(TCGA_BRCAdata,TCGA_BRCAdata$mRNAs[,"VIM"])
 SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
-PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="SORCS1")
-temp <-SelData$PParents[["SORCS1"]]
-SORCS1.X.TScan=SelData$d[,temp]
-SORCS1.Parents<-PTC.TestInvariance(Y=SelData$d[,"SORCS1", drop = F], X=SORCS1.X.TScan)
-names(SORCS1.Parents)<-"SORCS1"
-SORCS1.Parents<-Extract.Parents(SORCS1.Parents,SelData$PParents["SORCS1"])
+PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs="ONECUT2")
+temp <-SelData$PParents[["ONECUT2"]]
+ONECUT2.X.TScan=SelData$d[,temp]
+set.seed(1)
+ONECUT2.Parents<-PTC.TestInvariance(Y=SelData$d[,"ONECUT2", drop = F], X=ONECUT2.X.TScan)
+ONECUT2.Parents<-Extract.Parents(ONECUT2.Parents,SelData$PParents["ONECUT2"])
 }
 }
 \seealso{

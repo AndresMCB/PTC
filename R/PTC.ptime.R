@@ -1,7 +1,6 @@
 #' @title PTC.ptime
 #' @inheritParams PTC
 #' @description Orders the gene expression by VIM_Time order.
-#' miRNAs names are changed to \code{miRBase v.21}
 #' @param matchedData A \code{List} with two elements. A miRNA gene expressions matrix (1st element)
 #' and A mRNA gene expressions matrix (2nd element).
 #' Columns represent miRNAs and rows represent samples.

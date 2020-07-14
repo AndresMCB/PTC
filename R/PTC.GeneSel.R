@@ -13,7 +13,7 @@
 #'       \item A matrix with miRNAs gene expression.
 #'       \item A matrix with mRNAs  gene expression.
 #'    }
-#' Columns represent miRNAs/mRNAs and rows represent time samples. Columns names must
+#' Columns represent miRNAs/mRNAs and rows represent samples (time points). Columns names must
 #' correspond to miRNAs/mRNAs names.
 #' @export
 #' @seealso \link{PTC}, \link{getDatabyMAD},

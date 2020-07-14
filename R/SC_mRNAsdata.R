@@ -1,6 +1,6 @@
 #'@title Original mRNAs dataset from GSE114071
 #'
-#'@description File containing mRNA gene expresion
+#'@description GSE114071 file containing mRNA gene expresion
 #'of 23284 mRNAs from 22 samples.
 #'@name SC_mRNAsdata
 #'@docType data
@@ -13,6 +13,6 @@
 #'and mechanisms of microRNA regulation."
 #'Nat Commun 10, 95 (2019).
 #'https://doi.org/10.1038/s41467-018-07981-6
-#'@keywords dataset, mRNAs, Single Cell
+#'@keywords dataset mRNAs Single_Cell
 
 NULL
