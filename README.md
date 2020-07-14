@@ -5,7 +5,7 @@ A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA Interactions Duri
 Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, Jiuyong Li, Thuc Duy Le
 bioRxiv 2020.07.07.192724; doi: https://doi.org/10.1101/2020.07.07.192724
 
-Experiments implemented in our paper can be found in [ints/PTC.MainApplication.R](ints/PTC.MainApplication.R)
+Experiments implemented in our paper can be found in [ints/PTC.MainApplication.R](inst/PTC.MainApplication.R)
 
 ## Introduction
 Inspired by the pseudo-time concept we develop a novel approach, called the pseudo-time causality (PTC) based approach, to elucidate the miRNA-mRNA interactions during biological processes, using gene expression data with the expression profiles of matched miRNAs and mRNAs in the same cells or samples. Given a biological process, PTC firstly transforms the matched miRNA and mRNA single cell gene expression data to pseudo-time data using the marker genes of the biological process. PTC relies on the causal invariance property [(Peters et al., 2015](https://doi.org/10.1111/rssb.12167); [Pfister et al., 2018)](https://doi.org/10.1080/01621459.2018.1491403) to find the causal relationships
