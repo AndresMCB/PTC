@@ -1,5 +1,5 @@
 # PTC
-PTC package contains functions to determine causal miRNAs-mRNA relationships. Detailed information can be found in:
+PTC R package contains functions to determine causal miRNAs-mRNA relationships. Detailed information can be found in:
 
 A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA Interactions During Biological Processes
 Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, Jiuyong Li, Thuc Duy Le
