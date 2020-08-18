@@ -39,8 +39,13 @@
 #' @param silent If \code{TRUE} (default), PTC displays the currently evaluated set.
 #' If \code{FALSE}, PTC only displays the number of sets to be explored in
 #' the current iteration.
+<<<<<<< HEAD
 #' @param TScan A 2 column matrix containing the miRNA-mRNA relationships as predicted by TargetScan.\cr
 #' For an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+=======
+#' @param TScan A 2 column matrix containing the miRNA-mRNA relationships.
+#' for an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+>>>>>>> 3fed0820d2a81251bcfdc7368201828ff183e46c
 #' If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.
 #'
 #' @author Andres Mauricio Cifuentes_Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, JiuyongLi and Thuc Duy Le
@@ -84,9 +89,15 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
   {
   #for compatibility, mRNAs are trasformed to uppercase
   colnames(mRNAs)<-toupper(colnames(mRNAs))
+<<<<<<< HEAD
   # if(is.null(TScan)){
   #   data("TScan", envir = environment())
   # }
+=======
+  if(is.null(TScan)){
+    data("TScan", envir = environment())
+  }
+>>>>>>> 3fed0820d2a81251bcfdc7368201828ff183e46c
 
   data("TS7.0_Conserved_Site_Context_Scores",envir = environment())
 
