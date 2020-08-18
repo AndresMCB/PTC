@@ -25,7 +25,7 @@ PTC.miRv21  <- function(miRs) {
   NA.index<-which(is.na(aux[,2]))
   #recover those miRs names
   if(length(NA.index)>0){
-    message("some conversion failed, for those miRs original name is kept")
+    message(paste(length(NA.index)," conversions failed, original name is kept"))
     aux[NA.index,2]<-miRs[NA.index]
   }
   #if there are multiple matched miRNAs, we choose the first one
