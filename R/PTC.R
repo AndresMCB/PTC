@@ -79,6 +79,9 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
               , ngrid=2, alpha=0.02, complements = TRUE
               , explore.all=TRUE, silent=TRUE)
   {
+  #for compatibility, mRNAs are trasformed to uppercase
+  colnames(mRNAs)<-toupper(colnames(mRNAs))
+
   data("TScan", envir = environment())
   data("TS7.0_Conserved_Site_Context_Scores",envir = environment())
 
