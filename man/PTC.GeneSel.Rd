@@ -4,7 +4,7 @@
 \alias{PTC.GeneSel}
 \title{PTC.GeneSel}
 \usage{
-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
+PTC.GeneSel(seqData, nmiR = 30, nmR = 1500, TScan = NULL)
 }
 \arguments{
 \item{seqData}{A list with two elements:
@@ -18,6 +18,10 @@ correspond to miRNAs/mRNAs names.}
 \item{nmiR}{Number of miRNAs to be selected as predictor candidates.}
 
 \item{nmR}{Number of mRNAs to be selected as target variables.}
+
+\item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships as predicted by TargetScan.\cr
+For an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.}
 }
 \value{
 A list containing four elements:

@@ -1,7 +1,7 @@
 Package: PTC
 Type: Package
 Title: Pseudo-temporal Causality Approach
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: as.person(c(
     "Andres Mauricio Cifuentes_Bernal <andres.cifuentes_bernal@mymail.unisa.edu.au> [aut, cre]", 
     "Vu VH Pham <vu_viet_hoang.pham@mymail.unisa.edu.au> [aut]",

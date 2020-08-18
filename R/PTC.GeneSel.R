@@ -34,9 +34,10 @@
 #' SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
 #' }
 
-PTC.GeneSel<-function(seqData, nmiR = 30, nmR = 1500){
-  data(TScan, envir = environment())
-
+PTC.GeneSel<-function(seqData, nmiR = 30, nmR = 1500, TScan=NULL){
+  if(is.null(TScan)){
+    data(TScan, envir = environment())
+  }
   l <- getDatabyMAD(seqData, nmiR = nmiR, nmR = nmR)
 
 ##### ------Change selected miRNAs names to v21

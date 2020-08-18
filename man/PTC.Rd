@@ -46,6 +46,10 @@ the size of the set by one predictor at a time.}
 \item{silent}{If \code{TRUE} (default), PTC displays the currently evaluated set.
 If \code{FALSE}, PTC only displays the number of sets to be explored in
 the current iteration.}
+
+\item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships as predicted by TargetScan.\cr
+For an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.}
 }
 \value{
 A \code{list} consisting of the following elements:
@@ -90,7 +94,7 @@ bioRxiv 2020.07.07.192724;
  \url{https://doi.org/10.1101/2020.07.07.192724}
 }
 \seealso{
-\link[PTC]{PTC.ptime}, \link[PTC]{PTC.GeneSel},
+\link[PTC]{PTC.ptime}, \link[PTC]{PTC.GeneSel}, \link{TScan}
 \link[PTC]{PTC.TestInvariance}.
 }
 \author{
