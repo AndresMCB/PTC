@@ -42,7 +42,7 @@ PTC.GeneSel<-function(seqData, nmiR = 30, nmR = 1500, TScan=NULL){
 
 ##### ------Change selected miRNAs names to v21
   l$miRs<-PTC.miRv21(colnames(l$d[,1:nmiR]))
-
+  colnames(l$d)[1:nmiR]<-l$miRs
 #######-----Find miRNAs that can bind each gene (TargetScan7.0)
   PParents<-PTC.findPP(TScan, miRs=l$miRs, mRs=l$mRs)
   l$PParents<-PParents

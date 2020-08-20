@@ -18,6 +18,7 @@
 
 PTC.miRv21  <- function(miRs) {
   miRs<-gsub("\\..*","",miRs)
+
   aux<-miRNAVersionConvert(miRs
                            , targetVersion = "v21", exact = T
                            , verbose = T)
