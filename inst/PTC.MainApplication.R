@@ -6,11 +6,11 @@ data(GroundT)
 
 
 ######################Test with bulk data ##############
-test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,
-          mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
-t1.Confirmed<-Confirmed.fromList(test1$Names,GroundT)
-t1.ConfirmedTop200<-Confirmed.fromMatrix(
-  InterMatrix = test1$Summary[1:200,2:3],GroundT = GroundT)
+# test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,
+#           mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
+# t1.Confirmed<-Confirmed.fromList(test1$Names,GroundT)
+# t1.ConfirmedTop200<-Confirmed.fromMatrix(
+#   InterMatrix = test1$Summary[1:200,2:3],GroundT = GroundT)
 
 #### ----- Formating SCdata to create matched data ----#####
 SC_miRNAsdata<-na.omit(SC_miRNAsdata[,-2])
@@ -21,15 +21,17 @@ SC_miRNAsdata[,-1]<-2^SC_miRNAsdata[,-1]
 SC_miRNAsdata[,-1]<-30.18*SC_miRNAsdata[,-1]
 
 SC_mRNAsdata<-na.omit(SC_mRNAsdata)
-colnames(SC_mRNAsdata)<-SC_mRNAsdata[1,]
-rownames(SC_mRNAsdata)<-SC_mRNAsdata[,1]
-SC_mRNAsdata<-data.matrix(SC_mRNAsdata[-1,-c(1,2)])
+mR.names<-SC_mRNAsdata[-1,1]
+mR.sample<-SC_mRNAsdata[1,-c(1,2)]
+SC_mRNAsdata<-mapply(SC_mRNAsdata[-1,-c(1,2),drop =F], FUN=as.numeric, drop=F)
 
+rownames(SC_mRNAsdata)<-mR.names
+colnames(SC_mRNAsdata)<-mR.sample
 ## Remove half-cells without matched miRNAs-mRNAs
 ## and transpose
 SC_mRNAsdata<-t(SC_mRNAsdata[,-c(6,21,22),drop=FALSE])
 # #suggested retain only genes with mean expression greater than 1 and expressed in 20% of cells
-# SC_mRNAsdata<- SC_mRNAsdata[,colMeans(SC_mRNAsdata) > 0.1 & colMeans(SC_mRNAsdata > 0) > 0.2]
+SC_mRNAsdata<- SC_mRNAsdata[,colMeans(SC_mRNAsdata) > 0.1 & colMeans(SC_mRNAsdata > 0) > 0.2]
 
 
 SC_miRNAsdata<-t(SC_miRNAsdata[,-c(21,22),drop=FALSE])
