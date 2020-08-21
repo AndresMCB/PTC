@@ -6,11 +6,19 @@ data(GroundT)
 
 
 ######################Test with bulk data ##############
+<<<<<<< HEAD
  test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,
            mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
  t1.Confirmed<-Confirmed.fromList(test1$Names,GroundT)
  t1.ConfirmedTop200<-Confirmed.fromMatrix(
    InterMatrix = test1$Summary[1:200,2:3],GroundT = GroundT)
+=======
+# test1<-PTC(miRNAs=TCGA_BRCAdata$miRs,
+#           mRNAs=TCGA_BRCAdata$mRNAs, VIM=TCGA_BRCAdata$mRNAs[,"VIM"])
+# t1.Confirmed<-Confirmed.fromList(test1$Names,GroundT)
+# t1.ConfirmedTop200<-Confirmed.fromMatrix(
+#   InterMatrix = test1$Summary[1:200,2:3],GroundT = GroundT)
+>>>>>>> a9f8e84dda4fa0548036b40a4cf6d0142852b09e
 
 #### ----- Formating SCdata to create matched data ----#####
 SC_miRNAsdata<-na.omit(SC_miRNAsdata[,-2])
