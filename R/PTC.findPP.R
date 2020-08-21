@@ -30,7 +30,7 @@
 
 PTC.findPP<- function(TScan=NULL,miRs, mRs){
   if(is.null(TScan)){
-    TScan<-data(TScan)
+    data(TScan, envir = environment())
   }
   PParents<-vector("list",length = length(mRs))
   names(PParents)<-mRs
