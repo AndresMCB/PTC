@@ -19,8 +19,8 @@ correspond to miRNAs/mRNAs names.}
 
 \item{nmR}{Number of mRNAs to be selected as target variables.}
 
-\item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships as predicted by TargetScan.\cr
-For an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+\item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships.
+for an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
 If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.}
 }
 \value{

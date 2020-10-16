@@ -6,9 +6,6 @@
 \usage{
 PTC(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500 , ngrid=2, alpha=0.02, complements = TRUE
 , explore.all=TRUE, silent=TRUE)\cr
-
-For an adequate functioning, columns names in both, \code{miRNAs} and \code{mRNAs}
-matrices, must be the names of the miRNAs and mRNAs respectively.
 }
 \arguments{
 \item{miRNAs}{A \code{matrix} containing miRNA gene expression.\cr
@@ -47,8 +44,8 @@ the size of the set by one predictor at a time.}
 If \code{FALSE}, PTC only displays the number of sets to be explored in
 the current iteration.}
 
-\item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships as predicted by TargetScan.\cr
-For an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+\item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships.
+for an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
 If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.}
 }
 \value{
