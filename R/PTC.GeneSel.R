@@ -48,9 +48,9 @@ PTC.GeneSel<-function(seqData, nmiR = 30, nmR = 1500, TScan=NULL){
   names(seqData)<-c("miRs","mRNAs")
   # Warranting seqData contains numeric matrices
   if(!is.numeric(seqData$miRs))
-    seqData$miRs<-data.frame(lapply(seqData$miRs,as.numeric))
+    seqData$miRs<-apply(seqData$miRs,c(1,2),as.numeric)
   if(!is.numeric(seqData$mRNAs))
-    seqData$mRNAs<-data.frame(lapply(seqData$mRNAs,as.numeric))
+    seqData$mRNAs<-apply(seqData$miRs,c(1,2),as.numeric)
 
   l <- getDatabyMAD(seqData, nmiR = nmiR, nmR = nmR)
 
