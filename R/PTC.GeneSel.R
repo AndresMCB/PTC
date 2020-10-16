@@ -50,7 +50,7 @@ PTC.GeneSel<-function(seqData, nmiR = 30, nmR = 1500, TScan=NULL){
   if(!is.numeric(seqData$miRs))
     seqData$miRs<-apply(seqData$miRs,c(1,2),as.numeric)
   if(!is.numeric(seqData$mRNAs))
-    seqData$mRNAs<-apply(seqData$miRs,c(1,2),as.numeric)
+    seqData$mRNAs<-apply(seqData$mRNAs,c(1,2),as.numeric)
 
   l <- getDatabyMAD(seqData, nmiR = nmiR, nmR = nmR)
 
