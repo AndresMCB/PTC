@@ -35,7 +35,7 @@ getDatabyMAD <- function(seqData, nmiR, nmR) {
   data(TScan, envir = environment())
 
   # Identify significant miRNAs by using function FSbyMAD in CancerSubtypes package
-  # miRNAsData is a matriz with nmiR rows
+  # miRNAsData is a matrix with nmiR rows
   miRNAsData = FSbyMAD(t(seqData$miRs), value = nmiR)
 
   # miRNAsData is transposed

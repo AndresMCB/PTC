@@ -38,6 +38,17 @@ PTC.GeneSel<-function(seqData, nmiR = 30, nmR = 1500, TScan=NULL){
   if(is.null(TScan)){
     data(TScan, envir = environment())
   }
+  if(!(is.list(seqData) && length(seqData)==2))
+  {
+    stop(paste('seqData must be a list with 2 elements. '
+               ,'A matrix with miRNAs gene expression (1st element)'
+               ,', and a matrix with mRNAs gene expression (2nd element)'
+               ,sep=""))
+  }
+  names(seqData)<-c("miRs","mRNAs")
+  # Warranting seqData contains numeric matrices
+  seqData[1]<-data.frame(lapply(seqData[1],as.numeric))
+  seqData[2]<-data.frame(lapply(seqData[2],as.numeric))
   l <- getDatabyMAD(seqData, nmiR = nmiR, nmR = nmR)
 
 ##### ------Change selected miRNAs names to v21
