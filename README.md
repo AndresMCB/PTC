@@ -21,7 +21,7 @@ PTC runs in the R statistical computing environment. R version 3.6.1 or higher a
 ```R
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install(version = "3.11")
+BiocManager::install(version = "3.17")
 ```
 2. Install Bioconductor dependencies required by PTC 
 ```R
