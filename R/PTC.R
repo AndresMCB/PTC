@@ -7,9 +7,6 @@
 #' data of the target and the predictors respectively, and \eqn{\epsilon} independent and identically
 #' distributed errors for the n time points in the time series.
 #' \eqn{Y_t, X_t} are the sequential data obtained after a pseudotime analysis.
-#' @usage PTC(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500 , ngrid=2, alpha=0.02, complements = TRUE
-#' , explore.all=TRUE, silent=TRUE)\cr
-#'
 #' @param miRNAs A \code{matrix} containing miRNA gene expression.\cr
 #' A total of \code{nmiR} miRNAs from this matrix are selected to be used
 #' as predictors candidates (i.e. plausible parents).
@@ -22,7 +19,7 @@
 #' @param nmiR Number of miRNAs to be selected as predictor candidates.
 #' @param nmR Number of mRNAs to be selected as target variables.
 #' @param ngrid Number of segments of the time series data used for creating
-#' the different enviroments required for the statistical test.
+#' the different environments required for the statistical test.
 #' \code{ngrid=2} by default.
 #' @param alpha Significance level for the statistical test.
 #' \code{alpha=0.02} by default.
@@ -33,14 +30,16 @@
 #' property. If \code{FALSE} PTC returns the first set that does not violate the invariance
 #' property. Exploration is made starting from the set of all predictors and reducing
 #' the size of the set by one predictor at a time.
-#' @param silent If \code{TRUE} (default), PTC displays the currently evaluated set.
-#' If \code{FALSE}, PTC only displays the number of sets to be explored in
-#' the current iteration.
+#' @param silent If \code{TRUE} (default), PTC only displays the number of sets
+#' to be explored in the current iteration.
+#' If \code{FALSE}, PTC also displays each evaluated and accepted set.
 #' @param TScan A 2 column matrix containing the miRNA-mRNA relationships.
-#' for an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+#' For an appropriate functioning, miRNAs must be in lower case and mRNAs in upper case.
 #' If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.
 #'
-#' @author Andres Mauricio Cifuentes_Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, JiuyongLi and Thuc Duy Le
+#' @author Andres Mauricio Cifuentes_Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, Jiuyong Li and Thuc Duy Le
+#' @importFrom utils data combn
+#' @importFrom stats na.omit
 #' @export
 #' @seealso \link[PTC]{PTC.ptime}, \link[PTC]{PTC.GeneSel}, \link{TScan}
 #' \link[PTC]{PTC.TestInvariance}.
@@ -79,7 +78,7 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
               , ngrid=2, alpha=0.02, complements = TRUE
               , explore.all=TRUE, silent=TRUE, TScan=NULL)
   {
-  #for compatibility, mRNAs are trasformed to uppercase
+  # for compatibility, mRNAs are transformed to uppercase
   colnames(mRNAs)<-toupper(colnames(mRNAs))
 
   data("TS7.0_Conserved_Site_Context_Scores",envir = environment())
@@ -108,8 +107,6 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
                               ,complements=complements))
     }
   }
-  Results<-list()
-
   Results<-Extract.Parents(PTC.outcome,SelData$PParents)
   Results$Summary<-InterList.toMatrix(Results$Names)
   Results$Summary<-PTC.RankByContext(TS7.0_Conserved_Site_Context_Scores

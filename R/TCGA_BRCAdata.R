@@ -1,6 +1,6 @@
 #'@title miRNA-mRNA matched bulk data from TCGA BRCA project
 #'
-#'@description File containing BRCA gene expresion matched data
+#'@description File containing BRCA gene expression matched data
 #'of 518 miRNAs and 17403 mRNAs from 503 samples.
 #'@name TCGA_BRCAdata
 #'@docType data

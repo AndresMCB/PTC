@@ -3,17 +3,17 @@
 #' @description Finds a set of miRNAs (predictors) that
 #' are causal parents of a target gene. This set is defined as the union of sets
 #' that are invariant. Invariance is determined by using the \code{decoupled test}
-#' from [seqICP]{seqICP.s}.
+#' from \link[seqICP]{seqICP.s}.
 #' @inheritParams PTC
 #' @param Y [nx1] A \code{named vector} containing the sequential gene expression of a
 #' target gene Y.\cr Please use \code{drop = FALSE} when assigning a mRNA gene expression from a \code{matrix}
 #' to preserve the name of the mRNA.
 #' @param X [nxp] A \code{named matrix} containing the sequential gene expression of
 #' \code{p} plausible parents (miRNAs that can bind the target mRNA). \cr
-#' for a correct functioning, column names must be the mRNA names.
+#' For a correct functioning, column names must be the miRNA names.
 #' @export
 #'
-#' @seealso \link{PTC}, \link{seqICP::seqICP.s}
+#' @seealso \link{PTC}, \link[seqICP]{seqICP.s}
 #' @return
 #' \item{\code{Parents}}{A set containing the indexes of the parents inferred by PTC.
 #' These indexes correspond to the indexes of the miRNAs in the set \code{PParents}
@@ -66,7 +66,7 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
   {
     Sets <- combn(x=1:p,aux)
 
-    #Remove all subsets in current UNION to don't evaluate them
+    # Remove all subsets of the current union so they are not evaluated again
     if(length(S.Union)>0){
       sets.to.remove<-combn(S.Union,aux)
       message(paste(" (PTC) nSets to REMOVE in current level = {"
@@ -80,7 +80,6 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
         #remove that set
         Sets<-Sets[,-index.temp,drop=FALSE]
       }
-      rm(temp,index.temp,sets.to.remove)
     }
 
 
@@ -101,7 +100,7 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
         }
         # if 1 set was "accepted", and dont want to explore all, finish
         if(explore.all==FALSE){
-          finish=TRUE
+          finish<-TRUE
           break
         }
       }
@@ -113,7 +112,7 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
     aux<-aux-1
     if(aux==0)
     {
-      finish=TRUE
+      finish<-TRUE
     }
   }#end while
 

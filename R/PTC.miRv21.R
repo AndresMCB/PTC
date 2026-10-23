@@ -20,8 +20,8 @@ PTC.miRv21  <- function(miRs) {
   miRs<-gsub("\\..*","",miRs)
 
   aux<-miRNAVersionConvert(miRs
-                           , targetVersion = "v21", exact = T
-                           , verbose = T)
+                           , targetVersion = "v21", exact = TRUE
+                           , verbose = TRUE)
   #check if any conversion went wrong
   NA.index<-which(is.na(aux[,2]))
   #recover those miRs names
@@ -32,6 +32,5 @@ PTC.miRv21  <- function(miRs) {
   #if there are multiple matched miRNAs, we choose the first one
   aux[,2]<-gsub("\\&.*","",aux[,2])
   miRs<-aux[,2]
-  rm(aux,NA.index)
   return(miRs)
 }

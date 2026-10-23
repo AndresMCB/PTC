@@ -21,10 +21,10 @@ to preserve the name of the mRNA.}
 
 \item{X}{[nxp] A \code{named matrix} containing the sequential gene expression of
 \code{p} plausible parents (miRNAs that can bind the target mRNA). \cr
-for a correct functioning, column names must be the mRNA names.}
+For a correct functioning, column names must be the miRNA names.}
 
 \item{ngrid}{Number of segments of the time series data used for creating
-the different enviroments required for the statistical test.
+the different environments required for the statistical test.
 \code{ngrid=2} by default.}
 
 \item{alpha}{Significance level for the statistical test.
@@ -36,9 +36,9 @@ property. If \code{FALSE} PTC returns the first set that does not violate the in
 property. Exploration is made starting from the set of all predictors and reducing
 the size of the set by one predictor at a time.}
 
-\item{silent}{If \code{TRUE} (default), PTC displays the currently evaluated set.
-If \code{FALSE}, PTC only displays the number of sets to be explored in
-the current iteration.}
+\item{silent}{If \code{TRUE} (default), PTC only displays the number of sets
+to be explored in the current iteration.
+If \code{FALSE}, PTC also displays each evaluated and accepted set.}
 
 \item{complements}{If \code{TRUE} (default), each environment is compared against
 its complement. If \code{FALSE} all environments are compared pairwise.}
@@ -52,7 +52,7 @@ These indexes correspond to the indexes of the miRNAs in the set \code{PParents}
 Finds a set of miRNAs (predictors) that
 are causal parents of a target gene. This set is defined as the union of sets
 that are invariant. Invariance is determined by using the \code{decoupled test}
-from [seqICP]{seqICP.s}.
+from \link[seqICP]{seqICP.s}.
 }
 \examples{
 \dontrun{
@@ -76,5 +76,5 @@ bioRxiv 2020.07.07.192724;
  \url{https://doi.org/10.1101/2020.07.07.192724}
 }
 \seealso{
-\link{PTC}, \link{seqICP::seqICP.s}
+\link{PTC}, \link[seqICP]{seqICP.s}
 }

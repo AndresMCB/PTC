@@ -2,11 +2,14 @@
 #'
 #'@description File containing the pseudotime obtained by using Wanderlust (Bendall et al) on
 #' the dataset \link{SC_mRNAsdata}. Parameters were set to k=4, l=2, ng=2 and snn =0.
-#'@name wandTime.csv
+#'@name wandTime
+#'@aliases wandTime.csv
 #'@docType data
-#'@usage wandTime <- read.csv("./data/wandTime.csv", header=FALSE)
+#'@usage NULL
 #'@format A \code{matrix} with 1 row and 19 columns with the pseudotime
 #'obtained by Wanderlust using the dataset \link{SC_mRNAsdata}.
+#'\code{data(wandTime)} does not load it correctly; read it from the repository with
+#'\code{wandTime <- read.csv("./data/wandTime.csv", header=FALSE)}.
 #'@references A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA
 #' Interactions During Biological Processes\cr
 #' Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li,

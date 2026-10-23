@@ -1,10 +1,10 @@
-#' @title PTC.RankByTScontext
-#' @description This fuction uses TS70 Conserved_Site_Context_Scores (from
+#' @title PTC.RankByContext
+#' @description This function uses TS70 Conserved_Site_Context_Scores (from
 #' \url{http://www.targetscan.org/cgi-bin/targetscan/data_download.cgi?db=vert_70})
 #' to rank a matrix of inferred miRNA-mRNA relationships.
-#' @param TS70context: A \code{matrix} containing conserved site context++ scores. The headers
+#' @param TS70context A \code{matrix} containing conserved site context++ scores. The headers
 #' of the matrix from TargetScan must be conserved when the file is imported into R.
-#' @param relationshipsM: A matrix with two columns containing miRNAs and mRNAs names.
+#' @param relationshipsM A matrix with two columns containing miRNAs and mRNAs names.
 #' First column represents miRNAs and second column mRNAs (e.g the output of \link{InterList.toMatrix}).
 #' @export
 #' @return A relationship matrix with four columns [Rank, miRNA, mRNA, Score].
@@ -48,8 +48,6 @@ PTC.RankByContext <-function(TS70context,relationshipsM){
   ,y=TS70context)
 
   #--------calculate Score as the average of context scores of each pair
-  Score<-matrix(nrow = nrow(relationshipsM),ncol=1)
-  colnames(Score)<-"Score"
   Score<-sapply(indexes,FUN = function(x,y) {
                   output<-mean(y[x,"context...score"])
                   return(output)
@@ -57,7 +55,7 @@ PTC.RankByContext <-function(TS70context,relationshipsM){
                 ,y=TS70context)
   relationshipsM<-cbind(relationshipsM,Score)
   relationshipsM<-relationshipsM[order(relationshipsM[,'Score']
-                                       ,decreasing = T),]
+                                       ,decreasing = TRUE),]
   relationshipsM<-cbind(1:nrow(relationshipsM),relationshipsM)
   colnames(relationshipsM)[1]<-"rank"
   rownames(relationshipsM)<-1:nrow(relationshipsM)

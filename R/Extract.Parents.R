@@ -14,9 +14,9 @@
 #'    (plausible parents) of each mRNA, obtained from \link{PTC.GeneSel}.
 #' @export
 #'
-#' @seealso
+#' @seealso \link{PTC}, \link{PTC.TestInvariance}, \link{PTC.GeneSel}
 #' @return A list of 3 elements.
-#'    \item{Index}{ Indexes of miRNAs inferrred as causal parents of each mRNA.
+#'    \item{Index}{ Indexes of miRNAs inferred as causal parents of each mRNA.
 #'    The indexes correspond to miRNAs position in the set of plausible parents of each mRNA.}
 #'    \item{Names}{ A list where each element corresponds to a mRNA and contains
 #'    the names of the miRNAs that are inferred as causal parents of that mRNA.}

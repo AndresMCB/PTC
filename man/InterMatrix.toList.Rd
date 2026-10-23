@@ -9,7 +9,7 @@ InterMatrix.toList(InterMatrix)
 \arguments{
 \item{InterMatrix}{A two column \code{matrix} containing miRNA-mRNA relationships.
 The first column corresponds to miRNAs.
-the second column corresponds to mRNAs.}
+The second column corresponds to mRNAs.}
 }
 \value{
 A \code{list} where each element has the following structure:
@@ -31,9 +31,9 @@ names(GEData)<-c("miRs","mRNAs")
 seqData<-PTC.ptime(GEData,VIM)
 SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
 InteractionsM<-InterList.toMatrix(SelData$PParents)
-InteractionsL<-InterMatrix.toList(PParentsM)
+InteractionsL<-InterMatrix.toList(InteractionsM)
 }
 }
 \seealso{
-
+\link{InterList.toMatrix}
 }

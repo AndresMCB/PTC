@@ -25,22 +25,13 @@
 #'  \url{https://doi.org/10.1093/bioinformatics/btx378}
 
 getDatabyMAD <- function(seqData, nmiR, nmR) {
-  if (!require(CancerSubtypes)) {
-    if (!requireNamespace("BiocManager", quietly = TRUE))
-      install.packages("BiocManager")
-    BiocManager::install("CancerSubtypes")
-  }
-  library(CancerSubtypes)
-
-  data(TScan, envir = environment())
-
   # Identify significant miRNAs by using function FSbyMAD in CancerSubtypes package
   # miRNAsData is a matrix with nmiR rows
   miRNAsData = FSbyMAD(t(seqData$miRs), value = nmiR)
 
   # miRNAsData is transposed
   miRNAsData <- t(miRNAsData)
-  #Get column names (sample names)
+  # Get column names (miRNA names)
   miRs <- colnames(miRNAsData)
 
   # Identify significant mRNAs by using function FSbyMAD in CancerSubtypes package

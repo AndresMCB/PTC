@@ -11,7 +11,7 @@ A \code{list} object with 2 elements: miRs and mRNAs
 TCGA_BRCAdata
 }
 \description{
-File containing BRCA gene expresion matched data
+File containing BRCA gene expression matched data
 of 518 miRNAs and 17403 mRNAs from 503 samples.
 }
 \references{

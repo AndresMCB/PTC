@@ -4,8 +4,19 @@
 \alias{PTC}
 \title{PTC}
 \usage{
-PTC(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500 , ngrid=2, alpha=0.02, complements = TRUE
-, explore.all=TRUE, silent=TRUE)\cr
+PTC(
+  miRNAs,
+  mRNAs,
+  VIM,
+  nmiR = 30,
+  nmR = 1500,
+  ngrid = 2,
+  alpha = 0.02,
+  complements = TRUE,
+  explore.all = TRUE,
+  silent = TRUE,
+  TScan = NULL
+)
 }
 \arguments{
 \item{miRNAs}{A \code{matrix} containing miRNA gene expression.\cr
@@ -25,7 +36,7 @@ Columns represent mRNAs, rows represent samples.}
 \item{nmR}{Number of mRNAs to be selected as target variables.}
 
 \item{ngrid}{Number of segments of the time series data used for creating
-the different enviroments required for the statistical test.
+the different environments required for the statistical test.
 \code{ngrid=2} by default.}
 
 \item{alpha}{Significance level for the statistical test.
@@ -40,12 +51,12 @@ property. If \code{FALSE} PTC returns the first set that does not violate the in
 property. Exploration is made starting from the set of all predictors and reducing
 the size of the set by one predictor at a time.}
 
-\item{silent}{If \code{TRUE} (default), PTC displays the currently evaluated set.
-If \code{FALSE}, PTC only displays the number of sets to be explored in
-the current iteration.}
+\item{silent}{If \code{TRUE} (default), PTC only displays the number of sets
+to be explored in the current iteration.
+If \code{FALSE}, PTC also displays each evaluated and accepted set.}
 
 \item{TScan}{A 2 column matrix containing the miRNA-mRNA relationships.
-for an appropriate functioning, miRNAs must be in lower case and mRNAs in Uppercase.
+For an appropriate functioning, miRNAs must be in lower case and mRNAs in upper case.
 If \code{NULL} (default), PTC uses a pre-loaded matrix (file TScan) with TargetScan 7.0 Human.}
 }
 \value{
@@ -95,5 +106,5 @@ bioRxiv 2020.07.07.192724;
 \link[PTC]{PTC.TestInvariance}.
 }
 \author{
-Andres Mauricio Cifuentes_Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, JiuyongLi and Thuc Duy Le
+Andres Mauricio Cifuentes_Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, Jiuyong Li and Thuc Duy Le
 }

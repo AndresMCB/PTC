@@ -28,7 +28,7 @@
 Confirmed.fromList<-function(InterList,GroundT){
   InterList<-na.omit(InterList)
   index<-which(sapply(InterList, is.null))
-  if(length(index>0)){
+  if(length(index)>0){
     InterList<-InterList[-index]
   }
   mRs<-names(InterList)
@@ -36,10 +36,7 @@ Confirmed.fromList<-function(InterList,GroundT){
   for (i in mRs) {
     for (j in InterList[[i]]) {
       if(j%in%GroundT[[i]]){
-        ifelse(is.null(ConfirmedL[[i]])
-               ,ConfirmedL[[i]]<-j
-               ,ConfirmedL[[i]]<-c(ConfirmedL[[i]],j)
-        )
+        ConfirmedL[[i]]<-c(ConfirmedL[[i]],j)
       }
     }#end for miR names
   }#end for genes

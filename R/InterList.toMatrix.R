@@ -1,12 +1,12 @@
 #' @title InterList.toMatrix
 #'
 #' @description Given a \code{list} where each element is a mRNA containing the set of
-#' the miRNAs (parents) such mRNA can interact with(e.g. the output of \link{Extract.Parents}),
+#' the miRNAs (parents) such mRNA can interact with (e.g. the output of \link{Extract.Parents}),
 #' it returns a \code{matrix} with the miRNA-mRNA interactions. Each row represents an interaction.
-#' The first column contains miRNAs. The second column contains mRNAs
+#' The first column contains miRNAs. The second column contains mRNAs.
 #' @inheritParams Confirmed.fromList
 #' @export
-#' @seealso
+#' @seealso \link{InterMatrix.toList}, \link{Extract.Parents}
 #' @return A matrix with 2 columns containing the miRNA-mRNA interactions.
 #' @examples \dontrun{
 #' data(TCGA_BRCAdata)
@@ -27,7 +27,7 @@ InterList.toMatrix<-function(InterList){
     InterList<-InterList[-which(is.na(InterList))]
   }
   index<-which(sapply(InterList, is.null))
-  if(length(index>0)){
+  if(length(index)>0){
     InterList<-InterList[-index]
   }
   InterMatrix<-matrix(nrow = length(unlist(InterList)),ncol = 2)

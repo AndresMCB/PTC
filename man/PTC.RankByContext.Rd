@@ -2,15 +2,15 @@
 % Please edit documentation in R/PTC.RankByContext.R
 \name{PTC.RankByContext}
 \alias{PTC.RankByContext}
-\title{PTC.RankByTScontext}
+\title{PTC.RankByContext}
 \usage{
 PTC.RankByContext(TS70context, relationshipsM)
 }
 \arguments{
-\item{TS70context:}{A \code{matrix} containing conserved site context++ scores. The headers
+\item{TS70context}{A \code{matrix} containing conserved site context++ scores. The headers
 of the matrix from TargetScan must be conserved when the file is imported into R.}
 
-\item{relationshipsM:}{A matrix with two columns containing miRNAs and mRNAs names.
+\item{relationshipsM}{A matrix with two columns containing miRNAs and mRNAs names.
 First column represents miRNAs and second column mRNAs (e.g the output of \link{InterList.toMatrix}).}
 }
 \value{
@@ -18,7 +18,7 @@ A relationship matrix with four columns [Rank, miRNA, mRNA, Score].
 The more negative the score, the best the rank of the corresponding miRNA-mRNA pair.
 }
 \description{
-This fuction uses TS70 Conserved_Site_Context_Scores (from
+This function uses TS70 Conserved_Site_Context_Scores (from
 \url{http://www.targetscan.org/cgi-bin/targetscan/data_download.cgi?db=vert_70})
 to rank a matrix of inferred miRNA-mRNA relationships.
 }

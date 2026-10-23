@@ -6,9 +6,9 @@
 #'
 #' @param InterMatrix A two column \code{matrix} containing miRNA-mRNA relationships.
 #' The first column corresponds to miRNAs.
-#' the second column corresponds to mRNAs.
+#' The second column corresponds to mRNAs.
 #' @export
-#' @seealso
+#' @seealso \link{InterList.toMatrix}
 #' @return A \code{list} where each element has the following structure:
 #'    \item{\code{name:}}{ mRNA name.}
 #'    \item{\code{data:}}{ Names of the miRNAs linked to the current mRNA}
@@ -23,7 +23,7 @@
 #' seqData<-PTC.ptime(GEData,VIM)
 #' SelData<-PTC.GeneSel(seqData, nmiR = 30, nmR = 1500)
 #' InteractionsM<-InterList.toMatrix(SelData$PParents)
-#' InteractionsL<-InterMatrix.toList(PParentsM)
+#' InteractionsL<-InterMatrix.toList(InteractionsM)
 #' }
 
 InterMatrix.toList<-function(InterMatrix){
@@ -33,7 +33,7 @@ InterMatrix.toList<-function(InterMatrix){
   names(InterList)<-aux
   for (i in aux) {
     index<-which(InterMatrix[,2]==i)
-    InterList[[i]]<-InterMatrix[index,1,drop=F]
+    InterList[[i]]<-InterMatrix[index,1,drop=FALSE]
   }
   return(InterList)
 }

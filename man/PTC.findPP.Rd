@@ -11,13 +11,13 @@ PTC.findPP(TScan = NULL, miRs, mRs)
 TargetScan.\cr
 If \code{NULL} (default): Loads the file \code{TScan.rda}, which
 contains interactions from TargetScan 7.0. miRNA names in this file
-belongs to miRBase version 21.}
+belong to miRBase version 21.}
 
 \item{miRs}{A vector containing the names of miRNAs to be verified. These names
-corresponds to the names of predictor candidates.}
+correspond to the names of predictor candidates.}
 
 \item{mRs}{A vector containing the names of mRNAs to be verified. These names
-corresponds to the names of target genes (response variables).}
+correspond to the names of target genes (response variables).}
 }
 \value{
 A \code{list} where each element corresponds to a mRNA. Each element contains
@@ -26,7 +26,7 @@ the set of miRNAs that can bind the mRNA.
 \description{
 Given a vector of miRNA names and a vector of mRNAs names,
 creates a set of miRNAs (plausible parents) that can biologically target
-that mRNA as predicted by TargetScan. \cr For an adequate functioning
+each mRNA as predicted by TargetScan. \cr For an adequate functioning
 miRNAs names in \code{TScan} and \code{miRs} must belong to the same version.
 miRBase version 21 is recommended (see \link{PTC.miRv21})
 }
@@ -40,5 +40,5 @@ PParents<-PTC.findPP(TScan, miRs=SelData$miRs, mRs=SelData$mRs)
 }
 }
 \seealso{
-\link{PTC},\link{PTC.GeneSel}, \link{TScan} \link{PTC.miRv21}
+\link{PTC}, \link{PTC.GeneSel}, \link{TScan}, \link{PTC.miRv21}
 }

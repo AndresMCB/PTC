@@ -6,14 +6,14 @@
 \title{Original mRNAs dataset from GSE114071}
 \format{
 A \code{matrix} with 23285 rows and 24 columns.
-samples are represented in rows (from row 2). Columns contains miRNAs names,
+samples are represented in rows (from row 2). Columns contain mRNA names,
 description and samples
 }
 \usage{
 SC_mRNAsdata
 }
 \description{
-GSE114071 file containing mRNA gene expresion
+GSE114071 file containing mRNA gene expression
 of 23284 mRNAs from 22 samples.
 }
 \references{

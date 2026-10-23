@@ -9,7 +9,7 @@
 #'@format A \code{list} where each element has the following structure:
 #'\itemize{
 #'   \item{\code{name}:}{ mRNA name.}
-#'   \item{\code{data}:}{ names of miRNAs whose interactions with the mRNA can be founded in at least
+#'   \item{\code{data}:}{ names of miRNAs whose interactions with the mRNA can be found in at least
 #'   one of the databases described above.}
 #'}
 #'@references
