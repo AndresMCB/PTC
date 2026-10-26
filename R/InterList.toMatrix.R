@@ -26,7 +26,7 @@ InterList.toMatrix<-function(InterList){
   if(length(which(is.na(InterList)))>0){
     InterList<-InterList[-which(is.na(InterList))]
   }
-  index<-which(sapply(InterList, is.null))
+  index<-which(vapply(InterList, is.null, logical(1)))
   if(length(index)>0){
     InterList<-InterList[-index]
   }

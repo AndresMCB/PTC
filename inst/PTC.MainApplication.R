@@ -61,8 +61,9 @@ t2.ConfirmedTop200<-Confirmed.fromMatrix(
 ####---- Additional test by using pseudotime from wanderlust ----####
 wandTime <- read.csv("./data/wandTime.csv"
   , header=FALSE)
+# wandTime is read as a 1-row table; unlist() turns it into the pseudotime vector
 test3<-PTC(miRNAs=SC_miRNAsdata, mRNAs=SC_mRNAsdata
-           , VIM=wandTime)
+           , VIM=unlist(wandTime))
 t3.Confirmed<-Confirmed.fromList(test3$Names,GroundT)
 t3.ConfirmedTop200<-Confirmed.fromMatrix(
   InterMatrix = test3$Summary[1:200,2:3],GroundT = GroundT)

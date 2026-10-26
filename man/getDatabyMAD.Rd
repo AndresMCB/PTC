@@ -30,6 +30,10 @@ Given a gene expression data including matched miRNAs-mRNAs,
    finds the \code{nmiR} miRNAs and the \code{nmR} mRNAs with the largest
    Median Absolute Deviation (MAD).
 }
+\details{
+The selection reproduces \code{FSbyMAD(cut.type = "topk")} from the
+   CancerSubtypes package (now deprecated in Bioconductor), without drawing its histogram.
+}
 \examples{
 data(TCGA_BRCAdata)
 nmiR <- 30
@@ -43,9 +47,6 @@ Taosheng Xu, Thuc Duy Le, Lin Liu, Ning Su,
  CancerSubtypes: an R/Bioconductor package for molecular
  cancer subtype identification, validation, and visualization. Bioinformatics 33(19): 3131–3133 (2017).
  \url{https://doi.org/10.1093/bioinformatics/btx378}
-}
-\seealso{
-\link[CancerSubtypes]{FSbyMAD}
 }
 \author{
 Vu VH Pham <vu_viet_hoang.pham@mymail.unisa.edu.au>,

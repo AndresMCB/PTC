@@ -24,7 +24,6 @@ Depends:
   R (>= 3.6.1)
 Imports:
   miRBaseConverter,
-  CancerSubtypes,
   seqICP,
   stats,
   utils

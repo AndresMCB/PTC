@@ -8,7 +8,8 @@
 #' First column represents miRNAs and second column mRNAs (e.g the output of \link{InterList.toMatrix}).
 #' @export
 #' @return A relationship matrix with four columns [Rank, miRNA, mRNA, Score].
-#' The more negative the score, the best the rank of the corresponding miRNA-mRNA pair.
+#' The more negative the score, the better the rank of the corresponding miRNA-mRNA pair.
+#' Pairs without a context score (\code{NaN}) are ranked last.
 #' @seealso \link[PTC]{PTC}
 #' @examples \dontrun{
 #' data(TCGA_BRCAdata)
@@ -31,6 +32,10 @@
 
 PTC.RankByContext <-function(TS70context,relationshipsM){
 
+  if(ncol(relationshipsM)==2 && nrow(relationshipsM)==0){
+    # No inferred interactions: return an empty table with the usual columns
+    return(cbind(rank=character(0), relationshipsM, Score=character(0)))
+  }
   if(ncol(relationshipsM)==2){
     names(relationshipsM)<-c("miR","mR")
   }else{
@@ -54,8 +59,9 @@ PTC.RankByContext <-function(TS70context,relationshipsM){
                   }
                 ,y=TS70context)
   relationshipsM<-cbind(relationshipsM,Score)
-  relationshipsM<-relationshipsM[order(relationshipsM[,'Score']
-                                       ,decreasing = TRUE),]
+  # Score is stored as text in the matrix, so sort on its numeric value:
+  # most negative first, pairs without a context score (NaN) last
+  relationshipsM<-relationshipsM[order(as.numeric(relationshipsM[,'Score'])),,drop=FALSE]
   relationshipsM<-cbind(1:nrow(relationshipsM),relationshipsM)
   colnames(relationshipsM)[1]<-"rank"
   rownames(relationshipsM)<-1:nrow(relationshipsM)

@@ -97,7 +97,7 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
     if(length(X.TScan)>0){
       message(paste(" Current mRNA  = {",gene,"}",sep=" "))
       set.seed(1)
-      PTC.outcome[gene]<-
+      outcome<-
         try(PTC.TestInvariance(Y = SelData$d[,gene,drop = FALSE]
                               ,X = X.TScan
                               ,ngrid = ngrid
@@ -105,6 +105,12 @@ PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500
                               ,explore.all = explore.all
                               ,silent=silent
                               ,complements=complements))
+      if(inherits(outcome, "try-error")){
+        warning("The invariance test failed for ", gene,
+                "; it is reported without parents. Error: ",
+                conditionMessage(attr(outcome, "condition")), call. = FALSE)
+      }
+      PTC.outcome[gene]<-outcome
     }
   }
   Results<-Extract.Parents(PTC.outcome,SelData$PParents)

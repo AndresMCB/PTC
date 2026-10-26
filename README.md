@@ -24,10 +24,10 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install()
 ```
 
-2. Install the Bioconductor dependencies required by PTC:
+2. Install the Bioconductor dependency required by PTC:
 
 ```R
-BiocManager::install(c("miRBaseConverter", "CancerSubtypes"))
+BiocManager::install("miRBaseConverter")
 ```
 
 3. Install the PTC package from this GitHub repository. The CRAN dependency `seqICP` is installed automatically.

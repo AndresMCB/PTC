@@ -27,7 +27,7 @@
 
 Confirmed.fromList<-function(InterList,GroundT){
   InterList<-na.omit(InterList)
-  index<-which(sapply(InterList, is.null))
+  index<-which(vapply(InterList, is.null, logical(1)))
   if(length(index)>0){
     InterList<-InterList[-index]
   }
