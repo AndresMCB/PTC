@@ -70,8 +70,8 @@
 #' Interactions During Biological Processes\cr
 #' Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li,
 #' Lin Liu, Jiuyong Li, Thuc Duy Le \cr
-#' bioRxiv 2020.07.07.192724;
-#'  \url{https://doi.org/10.1101/2020.07.07.192724}
+#' Bioinformatics, 2021.
+#'  \url{https://doi.org/10.1093/bioinformatics/btaa899}
 #'
 
 PTC<-function(miRNAs, mRNAs, VIM, nmiR=30, nmR=1500

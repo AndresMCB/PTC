@@ -1,0 +1,13 @@
+bibentry(
+  bibtype = "Article",
+  title = "A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA Interactions During Biological Processes",
+  author = c(person("Andres M.", "Cifuentes-Bernal"),
+             person("Vu VH", "Pham"),
+             person("Xiaomei", "Li"),
+             person("Lin", "Liu"),
+             person("Jiuyong", "Li"),
+             person("Thuc Duy", "Le")),
+  journal = "Bioinformatics",
+  year = "2021",
+  doi = "10.1093/bioinformatics/btaa899"
+)

@@ -21,7 +21,7 @@ PTC.miRv21  <- function(miRs) {
 
   aux<-miRNAVersionConvert(miRs
                            , targetVersion = "v21", exact = TRUE
-                           , verbose = TRUE)
+                           , verbose = FALSE)
   #check if any conversion went wrong
   NA.index<-which(is.na(aux[,2]))
   #recover those miRs names

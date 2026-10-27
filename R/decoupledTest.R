@@ -3,7 +3,9 @@
 # This is the part of seqICP::seqICP.s() (seqICP 1.1, by Niklas Pfister and
 # Jonas Peters, GPL-3) that PTC uses: test = "decoupled", model = "iid",
 # link = sum and a parametric bootstrap (permutation = FALSE). The computations
-# and the random draws are the same as in seqICP.s, so p-values are identical.
+# and the random draws are the same as in seqICP.s. The bootstrap residuals are
+# computed without the n x n matrix M, which is faster and gives the same p-values
+# for the published analyses (checked with identical() on the TCGA and single-cell runs).
 #
 # Pfister, N., P. Buhlmann and J. Peters (2019). Invariant Causal Prediction for
 # Sequential Data. Journal of the American Statistical Association.
@@ -101,8 +103,10 @@ decoupledTest <- function(X, Y, S, grid, complements, B = 100) {
     rbind(sum(T.pairs[1, ]), sum(T.pairs[2, ]))
   }
 
-  # Scaled residuals of the pooled linear fit
-  M <- diag(n) - X %*% solve(t(X) %*% X, t(X))
+  # Scaled residuals of the pooled linear fit. M = I - X (X'X)^-1 X' is the
+  # residual-maker matrix (n x n)
+  XtX.Xt <- solve(t(X) %*% X, t(X))
+  M <- diag(n) - X %*% XtX.Xt
   R <- M %*% Y
   R.scaled <- R / sqrt(sum(R^2))
   test.stat <- test.stat.fun(R.scaled)
@@ -111,7 +115,9 @@ decoupledTest <- function(X, Y, S, grid, complements, B = 100) {
   # Parametric bootstrap of the scaled residuals for the null distribution
   ###
   boot.fun <- function(i) {
-    tmp <- M %*% matrix(rnorm(n), n, 1)
+    # Same as M %*% e, computed without the n x n matrix (much faster for large n)
+    e <- matrix(rnorm(n), n, 1)
+    tmp <- e - X %*% (XtX.Xt %*% e)
     R.scaled.boot <- tmp / sqrt(sum(tmp^2))
     test.stat.fun(R.scaled.boot)
   }

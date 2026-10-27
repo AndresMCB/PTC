@@ -20,6 +20,9 @@ Description: PTC package provides tools to find miRNA-mRNA causal regulatory rel
  al., 2018) for those sets that contain only miRNAs that biologically can interact with each target gene.
 License: GPL-3
 Encoding: UTF-8
+Suggests:
+  testthat (>= 3.0.0)
+Config/testthat/edition: 3
 LazyData: true
 LazyDataCompression: xz
 Depends:

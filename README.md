@@ -3,7 +3,10 @@ PTC R package contains functions to determine causal miRNAs-mRNA relationships. 
 
 A Pseudo-Temporal Causality Approach to Identifying miRNA-mRNA Interactions During Biological Processes
 Andres M. Cifuentes-Bernal, Vu VH Pham, Xiaomei Li, Lin Liu, Jiuyong Li, Thuc Duy Le
-bioRxiv 2020.07.07.192724; doi: https://doi.org/10.1101/2020.07.07.192724
+Bioinformatics, 2021; doi: https://doi.org/10.1093/bioinformatics/btaa899
+(preprint: bioRxiv 2020.07.07.192724; doi: https://doi.org/10.1101/2020.07.07.192724)
+
+To cite PTC in publications, please use `citation("PTC")` in R.
 
 Experiments implemented in our paper can be found in [inst/PTC.MainApplication.R](inst/PTC.MainApplication.R)
 
