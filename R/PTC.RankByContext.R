@@ -9,7 +9,7 @@
 #' @export
 #' @return A relationship matrix with four columns [Rank, miRNA, mRNA, Score].
 #' The more negative the score, the better the rank of the corresponding miRNA-mRNA pair.
-#' Pairs without a context score (\code{NaN}) are ranked last.
+#' Pairs without context score (\code{NaN}) are ranked last.
 #' @seealso \link[PTC]{PTC}
 #' @examples \dontrun{
 #' data(TCGA_BRCAdata)

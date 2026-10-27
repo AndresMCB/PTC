@@ -31,8 +31,9 @@ Given a gene expression data including matched miRNAs-mRNAs,
    Median Absolute Deviation (MAD).
 }
 \details{
-The selection reproduces \code{FSbyMAD(cut.type = "topk")} from the
-   CancerSubtypes package (now deprecated in Bioconductor), without drawing its histogram.
+MAD selection is made as in the function \code{FSbyMAD} (\code{cut.type="topk"}) from
+   the CancerSubtypes package. Since version 1.1.2 this selection is implemented in PTC,
+   so CancerSubtypes is no longer required.
 }
 \examples{
 data(TCGA_BRCAdata)

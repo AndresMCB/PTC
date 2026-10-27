@@ -8,8 +8,8 @@
 \format{
 A \code{matrix} with 1 row and 19 columns with the pseudotime
 obtained by Wanderlust using the dataset \link{SC_mRNAsdata}.
-\code{data(wandTime)} does not load it correctly; read it from the repository with
-\code{wandTime <- read.csv("./data/wandTime.csv", header=FALSE)}.
+Please use \code{wandTime <- read.csv("./data/wandTime.csv", header=FALSE)} to load this file
+(\code{data(wandTime)} does not load it properly).
 }
 \description{
 File containing the pseudotime obtained by using Wanderlust (Bendall et al) on

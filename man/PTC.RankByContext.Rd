@@ -16,7 +16,7 @@ First column represents miRNAs and second column mRNAs (e.g the output of \link{
 \value{
 A relationship matrix with four columns [Rank, miRNA, mRNA, Score].
 The more negative the score, the better the rank of the corresponding miRNA-mRNA pair.
-Pairs without a context score (\code{NaN}) are ranked last.
+Pairs without context score (\code{NaN}) are ranked last.
 }
 \description{
 This function uses TS70 Conserved_Site_Context_Scores (from

@@ -52,7 +52,8 @@ These indexes correspond to the indexes of the miRNAs in the set \code{PParents}
 Finds a set of miRNAs (predictors) that
 are causal parents of a target gene. This set is defined as the union of sets
 that are invariant. Invariance is determined by using the \code{decoupled test}
-of seqICP (Pfister et al., 2019), included in PTC.
+from seqICP (Pfister et al., 2018). Since version 1.1.2 this test is implemented in PTC,
+so seqICP is no longer required.
 }
 \examples{
 \dontrun{

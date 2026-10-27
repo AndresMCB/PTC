@@ -3,7 +3,8 @@
 #' @description Finds a set of miRNAs (predictors) that
 #' are causal parents of a target gene. This set is defined as the union of sets
 #' that are invariant. Invariance is determined by using the \code{decoupled test}
-#' of seqICP (Pfister et al., 2019), included in PTC.
+#' from seqICP (Pfister et al., 2018). Since version 1.1.2 this test is implemented in PTC,
+#' so seqICP is no longer required.
 #' @inheritParams PTC
 #' @param Y [nx1] A \code{named vector} containing the sequential gene expression of a
 #' target gene Y.\cr Please use \code{drop = FALSE} when assigning a mRNA gene expression from a \code{matrix}

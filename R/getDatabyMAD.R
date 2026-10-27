@@ -11,8 +11,9 @@
 #'    \item{\code{miRs}}{ The names of the selected miRs.}
 #'    \item{\code{mRs}}{ The names of the selected mRs.}
 #' @export
-#' @details The selection reproduces \code{FSbyMAD(cut.type = "topk")} from the
-#'    CancerSubtypes package (now deprecated in Bioconductor), without drawing its histogram.
+#' @details MAD selection is made as in the function \code{FSbyMAD} (\code{cut.type="topk"}) from
+#'    the CancerSubtypes package. Since version 1.1.2 this selection is implemented in PTC,
+#'    so CancerSubtypes is no longer required.
 #' @examples
 #' data(TCGA_BRCAdata)
 #' nmiR <- 30
