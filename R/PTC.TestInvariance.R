@@ -1,9 +1,9 @@
 #' @title PTC.TestInvariance
-#' @importFrom seqICP seqICP.s
+#' @importFrom stats rnorm
 #' @description Finds a set of miRNAs (predictors) that
 #' are causal parents of a target gene. This set is defined as the union of sets
 #' that are invariant. Invariance is determined by using the \code{decoupled test}
-#' from \link[seqICP]{seqICP.s}.
+#' of seqICP (Pfister et al., 2019), included in PTC.
 #' @inheritParams PTC
 #' @param Y [nx1] A \code{named vector} containing the sequential gene expression of a
 #' target gene Y.\cr Please use \code{drop = FALSE} when assigning a mRNA gene expression from a \code{matrix}
@@ -13,7 +13,7 @@
 #' For a correct functioning, column names must be the miRNA names.
 #' @export
 #'
-#' @seealso \link{PTC}, \link[seqICP]{seqICP.s}
+#' @seealso \link{PTC}
 #' @return
 #' \item{\code{Parents}}{A set containing the indexes of the parents inferred by PTC.
 #' These indexes correspond to the indexes of the miRNAs in the set \code{PParents}
@@ -42,15 +42,9 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
                              , explore.all=TRUE, silent=TRUE
                              , complements = TRUE){
 
-  test = "decoupled"
   X<-as.matrix(X)
-  par.test = list(grid = as.integer(seq(0,nrow(X),length.out=ngrid+1))
-                  ,complements = complements
-                  ,link = sum
-                  ,alpha = alpha
-                  ,B =100)
-  model="iid"
-  par.model=list(pknown=FALSE, p=0, max.p=10)
+  # Environments: ngrid consecutive segments of the pseudotime series
+  grid<-as.integer(seq(0,nrow(X),length.out=ngrid+1))
 
   finish<-FALSE
   p<-ncol(X)
@@ -91,8 +85,9 @@ PTC.TestInvariance<-function(Y, X, ngrid=2, alpha=0.02
         message(paste(" Current evaluated set  = {",toString(Sets[,j]),"}",sep=" "))
       }
 
-      res <- seqICP.s(X, Y, Sets[,j], test, par.test, model, par.model)
-      if(res$p.value>par.test$alpha){
+      p.value <- decoupledTest(X, Y, Sets[,j], grid = grid
+                               , complements = complements, B = 100)
+      if(p.value>alpha){
         model.rejected<-FALSE
         S.Union<-union(S.Union,Sets[,j])
         if(!silent){

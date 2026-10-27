@@ -6,7 +6,9 @@ Authors@R: c(
     person("Andres Mauricio", "Cifuentes_Bernal", email = "andres.cifuentes_bernal@mymail.unisa.edu.au", role = c("aut", "cre")),
     person("Vu VH", "Pham", email = "vu_viet_hoang.pham@mymail.unisa.edu.au", role = "aut"),
     person("Taosheng", "Xu", email = "taosheng.x@gmail.com", role = "aut"),
-    person("Thuc Duy", "Le", email = "thuc.le@unisa.edu.au", role = "aut")
+    person("Thuc Duy", "Le", email = "thuc.le@unisa.edu.au", role = "aut"),
+    person("Niklas", "Pfister", role = "ctb", comment = "decoupled invariance test adapted from seqICP"),
+    person("Jonas", "Peters", role = "ctb", comment = "decoupled invariance test adapted from seqICP")
   )
 Description: PTC package provides tools to find miRNA-mRNA causal regulatory relationships during 
  biological processes. Causal inference is made by assuming a linear dependence model between 
@@ -24,7 +26,6 @@ Depends:
   R (>= 3.6.1)
 Imports:
   miRBaseConverter,
-  seqICP,
   stats,
   utils
 RoxygenNote: 7.3.1

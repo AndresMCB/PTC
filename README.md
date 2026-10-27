@@ -30,7 +30,7 @@ BiocManager::install()
 BiocManager::install("miRBaseConverter")
 ```
 
-3. Install the PTC package from this GitHub repository. The CRAN dependency `seqICP` is installed automatically.
+3. Install the PTC package from this GitHub repository:
 
 ```R
 devtools::install_github("AndresMCB/PTC")
