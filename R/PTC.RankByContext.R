@@ -42,6 +42,9 @@ PTC.RankByContext <-function(TS70context,relationshipsM){
     stop("relationshipsM has to be a matrix with 2 columns [miR,mR]")
   }
 
+  # Only the TargetScan rows of the genes being ranked are needed, so keep those
+  # before converting miRNA names (much faster than converting all 1.4 million rows)
+  TS70context<-TS70context[TS70context[,"Gene.Symbol"] %in% relationshipsM[,2],,drop=FALSE]
   TS70context[,"miRNA"]<-PTC.miRv21(TS70context[,"miRNA"])
 
   #--------------------Scores
