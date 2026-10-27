@@ -38,6 +38,14 @@ BiocManager::install("miRBaseConverter")
 ```R
 devtools::install_github("AndresMCB/PTC")
 ```
+## Graphical interface
+PTC includes a graphical interface that runs in your web browser. It lets you run PTC on the example datasets or on your own matched miRNA-mRNA expression data (CSV files), change the parameters and download the inferred interactions. It also shows the R code to reproduce the analysis.
+
+```R
+install.packages(c("shiny", "bslib", "DT"))  # only needed once
+PTC::runPTCApp()
+```
+
 ## Documentation 
 Detailed information about the functions implemented in PTC can be found in the [user manual](PTC_1.1.2.pdf).
 

@@ -4,6 +4,14 @@ The results of the analyses in the paper (inst/PTC.MainApplication.R, TCGA
 BRCA and single-cell data) are exactly the same as with PTC 1.1.1. The test
 suite in tests/ checks this.
 
+## New features
+
+* `runPTCApp()` opens a graphical interface in the web browser. It runs PTC on
+  the example datasets or on uploaded CSV files, shows the inferred
+  interactions (and which ones are experimentally confirmed), lets you
+  download them, and gives the R code to reproduce the analysis. It needs the
+  packages shiny, bslib and DT.
+
 ## Bug fixes
 
 * `PTC.RankByContext()` sorted the scores as text. Now the scores are sorted

@@ -5,7 +5,7 @@
 published_parts <- function(res) res[c("Index", "Names", "genes", "Summary")]
 
 test_that("single-cell results are the published ones", {
-  SC <- prepare_SCdata()
+  SC <- PTC:::prepareSCdata()
   # As in the published analysis, the invariance test cannot be computed for
   # BZW1, EIF4G2 and SUB1 (singular design matrix), so PTC warns and they
   # have no parents.
